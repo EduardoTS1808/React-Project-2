@@ -15,7 +15,7 @@ import InfoIcon from "@mui/icons-material/Info";
 import CommentRoundedIcon from "@mui/icons-material/CommentRounded";
 import PhoneRoundedIcon from "@mui/icons-material/PhoneRounded";
 import ShoppingCartRoundedIcon from "@mui/icons-material/ShoppingCartRounded";
-
+import Card from '../Components/Cart'
 const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false);
   const menuOptions = [
@@ -46,13 +46,15 @@ const Navbar = () => {
         <img src={Logo} alt="" />
       </div>
       <div className="navbar-links-container">
-        <a href="">Home</a>
+        <a href="#home">Home</a>
         <a href="">Sobre</a>
         <a href="">Avaliações</a>
         <a href="">Contato</a>
-        <a href="">
+        <a href="#footer">Fim</a>
+        <Card/>
+        {/* <a href="">
           <BsCart2 className="navbar-cart-icon" />
-        </a>
+        </a> */}
         <button className="primary-button">Reservar ou Fazer Pedido</button>
       </div>
       <div className="navbar-menu-container">

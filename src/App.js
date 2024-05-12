@@ -1,7 +1,6 @@
 import './App.css';
 import Header from './Components/Header'
 import About from './Components/About'
-import Card from './Components/Card'
 import Work from './Components/Work'
 import Perform from './Components/Perform'
 import Contact from './Components/Contact';
