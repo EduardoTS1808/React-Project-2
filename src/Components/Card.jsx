@@ -1,6 +1,5 @@
 import  React from 'react';
-import {  Card, CardMedia, Box, Typography, IconButton} from '@mui/material';
-import CardImage from '../Assets/about-background-image.png'
+import {  Card, CardMedia, Box,Button,  Typography, IconButton} from '@mui/material';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { AiFillStar } from "react-icons/ai";
 
@@ -19,10 +18,11 @@ export default function BoxSx(props) {
             borderRadius: '10px'
         }}
         >
-            
-     <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
-    </IconButton>
+            <Button onClick={props.addCarrim}>
+              <IconButton aria-label="add to favorites">
+                    <FavoriteIcon />
+              </IconButton>
+            </Button>
         <CardMedia
             component="img"
             width="300px"
@@ -48,7 +48,7 @@ export default function BoxSx(props) {
             {props.content}
             </Typography>
             <Typography fontWeight="bold" noWrap gutterBottom>
-          {props.preco},00 R$ ,
+          R$ {props.preco},00 
             </Typography>
            
              <button className="secondary-button">Pedir</button>

@@ -1,10 +1,11 @@
-import  React,{useState, useEffect} from 'react';
+import  React,{useState, useEffect, useContext} from 'react';
+import { CartContext } from '../ContextCart';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import  Card  from './Card';
 import axios from 'axios';
 
-export default function AlignItemsList() {
+export default function ItemsList() {
 
     
     
@@ -12,7 +13,7 @@ export default function AlignItemsList() {
 
                     
     const [objeto, setObjeto] = useState([])
-  
+    const { addToCart } = useContext(CartContext);
 
 
     const serverLista = async () =>{
@@ -24,7 +25,6 @@ export default function AlignItemsList() {
         console.log(error)
    }
     }
-    
 
     
     useEffect(()=>{
@@ -32,14 +32,26 @@ export default function AlignItemsList() {
         serverLista()
         
     }, []) 
+
+
+
       return (
-    <Box  >
-        <h1> Cardapio</h1><br/>
+    <Box  sx={{marginTop:'60px', position:'relative'}} >
+        <h1 className="primary-heading">
+         Cardápio
+          </h1>
 
             <Grid container  >
                     {objeto.map((item) => (
             <Grid >
-            <Card  key={item.id} title={item.title} cardImage={item.src} preco={item.preco}  content={item.content } /> 
+            <Card
+              key={item.id} 
+              title={item.title} 
+              cardImage={item.src}
+               preco={item.preco} 
+              addCarrim={()=>addToCart(item)}
+                 content={item.content }
+                  /> 
             </Grid>
             ))}
           </Grid>
